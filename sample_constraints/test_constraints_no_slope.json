@@ -1,0 +1,91 @@
+{
+	"symbols":["AA"],
+	"dates":null,
+	"constraints":
+	[
+		{
+			"type":"ohlc_difference_factor_constraint",
+			
+			"left_abs":1,
+
+			"factor1":1,
+			"first":"open",
+			
+			"operation1":"-",
+			
+			"factor2":1,
+			"second":"close",
+			
+			"comparison":"<=",
+
+			"right_abs":1,
+			
+			"factor3":0.3,
+			"third":"high",
+			
+			"operation2":"-",
+			
+			"factor4":0.3,
+			"fourth":"low",
+			
+			"offset":0,
+			"days":1
+		},
+		{
+			"type":"ohlc_difference_factor_constraint",
+			
+			"left_abs":1,
+
+			"factor1":1,
+			"first":"close",
+			
+			"operation1":"-",
+			
+			"factor2":1,
+			"second":"high",
+			
+			"comparison":"<=",
+
+			"right_abs":1,
+			
+			"factor3":0.25,
+			"third":"high",
+			
+			"operation2":"-",
+			
+			"factor4":0.25,
+			"fourth":"low",
+			
+			"offset":0,
+			"days":1
+		},
+		{
+			"type":"ohlc_difference_factor_constraint",
+			
+			"left_abs":null,
+
+			"factor1":null,
+			"first":"open",
+			
+			"operation1":null,
+			
+			"factor2":null,
+			"second":null,
+			
+			"comparison":"<=",
+
+			"right_abs":0,
+			
+			"factor3":null,
+			"third":"close",
+			
+			"operation2":null,
+			
+			"factor4":null,
+			"fourth":null,
+			
+			"offset":0,
+			"days":1
+		}
+	]
+}
