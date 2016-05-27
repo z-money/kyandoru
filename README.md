@@ -1,4 +1,4 @@
-# kyanodoru
+# kyandoru
 Configurable searcher of stock data.
 
 The database is not included because it's too large for github.
