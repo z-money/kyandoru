@@ -15,6 +15,7 @@ class db_connect:
 
 	def dict_factory(self, cursor, row):
 	    """ allows for the return of associative arrays
+	    via stackoverflow
 	    """
 	    d = {}
 	    for idx, col in enumerate(cursor.description):
@@ -23,18 +24,19 @@ class db_connect:
 
 	def quote_identifier(self, s, errors="backslashreplace"):
 		""" encodes strings to avoid db errors around quotes
+		via stackoverflow
 		"""
-	    encodable = s.encode("utf-8", errors).decode("utf-8")
+		encodable = s.encode("utf-8", errors).decode("utf-8")
 
-	    nul_index = encodable.find("\x00")
+		nul_index = encodable.find("\x00")
 
-	    if nul_index >= 0:
-	        error = UnicodeEncodeError("utf-8", encodable, nul_index, nul_index + 1, "NUL not allowed")
-	        error_handler = codecs.lookup_error(errors)
-	        replacement, _ = error_handler(error)
-	        encodable = encodable.replace("\x00", replacement)
+		if nul_index >= 0:
+			error = UnicodeEncodeError("utf-8", encodable, nul_index, nul_index + 1, "NUL not allowed")
+			error_handler = codecs.lookup_error(errors)
+			replacement, _ = error_handler(error)
+			encodable = encodable.replace("\x00", replacement)
 
-	    return "\"" + encodable.replace("\"", "\"\"") + "\""
+		return "\"" + encodable.replace("\"", "\"\"") + "\""
 
 	def execute(self, sql_string, params = None):
 		if(params == None):
